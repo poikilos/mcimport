@@ -1170,19 +1170,29 @@
 216	decoblocks:bone_pillar	// replaces "bone block"
 // TODO: implement and leather armor chain_mail in kc_modpack: see also xtraarmor chain mail (https://forum.minetest.org/viewtopic.php?f=11&t=16645)
 // TODO: fill in this big gap here :asdf:
-268	default:gold_ingot
-268	default:sword_steel
+256	default:shovel_steel
+257	default:pick_steel
+258	default:axe_steel
+259	fire:flint_and_steel
+260	default:apple
+261	throwing:bow_wood	// requires throwing such as https://github.com/minetest-mods/throwing.git
+262	throwing:arrow		// requires throwing such as https://github.com/minetest-mods/throwing.git
+263 0	default:coal_lump
+263 1	default:coal_lump	// replaces "charcoal"
+264	
+265	default:steel_ingot
+266	default:gold_ingot
+267	default:sword_steel
+
 268	default:sword_wood
 269	default:shovel_wood
 270	default:pick_wood
 271	default:axe_wood
 
-
 272	default:sword_stone
 273	default:shovel_stone
 274	default:pick_stone
 275	default:axe_stone
-
 
 276	default:sword_diamond
 277	default:shovel_diamond
