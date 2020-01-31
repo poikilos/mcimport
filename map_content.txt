@@ -1282,7 +1282,7 @@
 //341	manaslimes:jungle_slime
 344	codermobs:chicken_egg
 // 345	compassgps:c1			// requires compassgps
-345	compass:0			// requires ccompass (has alias to compass:0) or that on which it is based: Echo's compass which was from .net/viewtopic.php?id=3785
+345	compass:0			// requires [ccompass](https://github.com/minetest-mods/ccompass.git) (has alias to compass:0) or that on which it is based: Echo's compass which was from .net/viewtopic.php?id=3785
 346	fishing:pole_wood	// requires fishing: https://github.com/MinetestForFun/fishing.git seems to work best (as opposed to wulfsdad's)
 347	coderblocks:lmb_clock		// TODO: implement realtime display in inventory slot?
 349 0	fishing:fish_raw	// raw fish
@@ -1295,18 +1295,18 @@
 // 351 0	default:coal_lump	// replaces "ink sack"
 351 0	coderblocks:lmb_ink_bottle	// TODO: implement this craftitem in Bucket_Game; replaces "ink sack"
 351 1	dye:red
-351 2	dye:dark_green
-// 351 3	dye:brown			// there is no brown dye in Minecraft, only cocoa beans
-351 3	farming:cocoa_beans			// there is no brown dye in Minecraft, only cocoa beans
+351 2	dye:dark_green			// replaces "green"
+// 351 3	dye:brown		// there is no brown dye in Minecraft, only cocoa beans
+351 3	farming:cocoa_beans		// there is no brown dye in Minecraft, only cocoa beans
 351 4	dye:blue
 351 5	dye:violet
 351 6	dye:dark_cyan			// TODO: implement this in Bucket_Game; replaces "Cyan" which is actually dark
 351 7	dye:grey			// replaces "light gray"
 351 8	dye:dark_grey			// replaces "grey"
-351 9	// TODO: implement this craftitem in Bucket_Game
-351 10	dye:pink			// TODO: implement this in Bucket_Game
+351 9	dye:pink			// TODO: implement this craftitem in Bucket_Game
+351 10	dye:green			// replaces "lime dye"
 351 11	dye:yellow
-351 12	dye:light_blue			// TODO: implement this in Bucket_Game
+351 12	dye:cyan			// replaces "light blue dye"
 351 13	dye:magenta
 351 14	dye:orange
 // 351 15	dye:white			// there is no white dye in Minecraft, only bonemeal
@@ -1314,6 +1314,7 @@
 352	bonemeal:bone
 353	farming:sugar
 354	pie:pie_0
+355	homedecor:bed_regular			// TODO: fix red bed in Bucket_Game
 359	mobs:shears
 388	birthstones:emerald
 389	itemframes:frame		// TODO: get inventory
