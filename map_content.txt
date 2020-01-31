@@ -660,7 +660,7 @@
 95 6	decoblocks:pink_glass
 95 7	decoblocks:darkgrey_glass	// replaces "gray"
 95 8	decoblocks:gray_glass		// replaces "light gray"
-95 9	decoblocks:dark cyan_glass	// TODO: implement this in Bucket_Game ("Cyan" in Minecraft, but actually dark)
+95 9	decoblocks:dark cyan_glass	// TODO: implement this in Bucket_Game; replaces "cyan" in Minecraft, but actually that is dark cyan
 95 10	decoblocks:purple_glass
 95 11	decoblocks:blue_glass
 95 12	decoblocks:brown_glass
@@ -1299,11 +1299,11 @@
 // 351 3	dye:brown		// there is no brown dye in Minecraft, only cocoa beans
 351 3	farming:cocoa_beans		// there is no brown dye in Minecraft, only cocoa beans
 351 4	dye:blue
-351 5	dye:violet
+351 5	dye:violet			// replaces "purple"
 351 6	dye:dark_cyan			// TODO: implement this in Bucket_Game; replaces "Cyan" which is actually dark
 351 7	dye:grey			// replaces "light gray"
 351 8	dye:dark_grey			// replaces "grey"
-351 9	dye:pink			// TODO: implement this craftitem in Bucket_Game
+351 9	dye:pink
 351 10	dye:green			// replaces "lime dye"
 351 11	dye:yellow
 351 12	dye:cyan			// replaces "light blue dye"
