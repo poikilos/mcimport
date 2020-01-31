@@ -810,7 +810,7 @@
 	126 5	stairs:slab_oak_wood		// TODO: implement this in Bucket_Game
 	126 13	stairs:slab_oak_wood 22		// TODO: implement this in Bucket_Game
 #endif
-127	farming:cocoa_pod			// TODO: I named this whatever was closest so it wouldn't get missed. use node version, whatever that is in Bucket_Game or farming redo (farming_plus:cocoa has alias to default:apple in farming/compatibility.lua currently; they probably should change; only cocoa_bean craftitem is implemented literally--there may be a node already though--see `crop = "farming:cocoa",` or nearby in /home/owner/minetest/games/Bucket_Game/mods/coderfood/farming/crops/cocoa.lua)
+//127	farming:cocoa_pod			// ignore: Minecraft places cocoa pods as a node, whereas Minetest farming adds farming:cocoa_beans (a pod node doesn't exist) to the plant's inventory and the plant wields the item, but that is not really important.
 128 0	stairs:stair_sandstone 1
 128 1	stairs:stair_sandstone 3
 128 2	stairs:stair_sandstone 2
