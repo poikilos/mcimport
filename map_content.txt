@@ -1,5 +1,11 @@
 // Documentation originally derived from: https://github.com/dgm3333/mcblocks/blob/master/map_content.txt
 // Updated by MysticTempest
+// Updated for Bucket_Game by Poikilos. See:
+// - https://minecraft-ids.grahamedgecombe.com/
+// - https://www.digminecraft.com/lists/item_id_list_pc_1_8.php
+//   - You can sort it using copy table as CSV (other copy options fail to paste
+//     due to size) with
+//     https://chrome.google.com/webstore/detail/copytables/ekdpkppgmlalfkphpibadldikjimijon?hl=en
 //
 // The format of this file is:
 //MCID data	modname:blockname param2
@@ -28,7 +34,7 @@
 //If MCData1 is omitted, the line will match MCIDs with MCData values from 0-15 (and any subsequent entries will be ignored)
 // Any data following '//' is parsed and not processed
 // preprocessor commands #if {NAME}, #else and #endif are recognised and intervening lines will be parsed
-//       out or retained dependant on flags in the content.read_content call
+//       out or retained dependent on flags in the content.read_content call
 
 // Extra reference documentation:
 //https://github.com/minetest/minetest/blob/2992b774fe65410a8acd3d06ae82dcd1eb260413/doc/lua_api.txt#L905
@@ -128,16 +134,18 @@
 
 //=====================================================================================
 
-1 0	default:stone				// TODO: Stone type
-1 1	default:stone				// TODO: Stone type
-1 2	xdecor:desertstone_tile
-1 3	default:stone				// TODO: Stone type
-1 4	xdecor:hard_clay
-1 5	default:stone				// TODO: Stone type
-1 6	xdecor:stone_tile
+1 0	default:stone
+1 1	technic:granite
+1 2	decoblocks:refined_granite_brown
+1 3	building_blocks:Marble			// in MineClone2:diorite
+1 4	greeknodes:polished_marble		// in MineClone2:polished diorite
+1 5	darkage:slate_rubble			// in MineClone2:andesite
+1 6	dargage:slate_block			// in MineClone2: polished andesite
 
 2	default:dirt_with_grass
-3	default:dirt
+3 0	default:dirt
+3 1	darkage:darkdirt			// course dirt
+3 2	coderblocks:lmb_podzol			// TODO: implement podzol in Bucket_Game
 4	default:cobble
 
 #ifdef MORETREES
@@ -161,25 +169,27 @@
 	6 5	moretrees:oak_sapling
 	6 13	moretrees:oak_sapling
 #else
-	5 0	default:wood
-	5 1	default:pine_wood
-	5 2	default:aspen_wood
-	5 3	default:junglewood
+	5 0	default:wood			// oak
+	5 1	default:spruce_wood
+	5 2	default:birch_wood
+	5 3	default:jungle_wood
 	5 4	default:acacia_wood
-	5 5	default:wood
-
+	5 5	default:oak_wood		// dark oak
+// Poikilos changes: default to default, pine to spruce, aspen to birch,
+// junglesapling to jungle_sapling (acacia stays acacia), dark oak to oak (all match
+// Minecraft naming now except that one but the color is closest that way)
 	6 0	default:sapling
 	6 8	default:sapling
-	6 1	default:pine_sapling
-	6 9	default:pine_sapling
-	6 2	default:aspen_sapling
-	6 10	default:aspen_sapling
-	6 3	default:junglesapling
-	6 11	default:junglesapling
+	6 1	default:spruce_sapling
+	6 9	default:spruce_sapling
+	6 2	default:birch_sapling
+	6 10	default:birch_sapling
+	6 3	default:jungle_sapling
+	6 11	default:jungle_sapling
 	6 4	default:acacia_sapling
 	6 12	default:acacia_sapling
-	6 5	default:sapling
-	6 13	default:sapling
+	6 5	default:oak_sapling		// dark oak
+	6 13	default:oak_sapling		// dark oak
 #endif
 
 7	bedrock:bedrock		// Bedrock
@@ -229,50 +239,54 @@
 	162 5	moretrees:oak_trunk 18
 	162 9	moretrees:oak_trunk 9
 #else
-	17 0	default:tree 0
-	17 4	default:tree 18
-	17 8	default:tree 9
-	17 1	default:pine_tree 0
-	17 5	default:pine_tree 18
-	17 9	default:pine_tree 9
-	17 2	default:aspen_tree 0
-	17 6	default:aspen_tree 18
-	17 10	default:aspen_tree 9
-	17 3	default:jungletree 0
-	17 7	default:jungletree 18
-	17 11	default:jungletree 9
-	17 12	default:tree		 # bark only versions
-	17 13	default:pine_tree
-	17 14	default:aspen_tree
-	17 15	default:jungletree
+	17 0	default:tree 0			// oak
+	17 4	default:tree 18			// oak
+	17 8	default:tree 9			// oak
+	17 1	default:spruce_trunk 0
+	17 5	default:spruce_trunk 18
+	17 9	default:spruce_trunk 9
+	17 2	default:birch_trunk 0
+	17 6	default:birch_trunk 18
+	17 10	default:birch_trunk 9
+	17 3	default:jungle_trunk 0
+	17 7	default:jungle_trunk 18
+	17 11	default:jungle_trunk 9
+	17 12	default:oak_trunk		 # bark only versions
+	17 13	default:spruce_trunk
+	17 14	default:birch_trunk
+	17 15	default:jungle_trunk
 	18 0,8	default:leaves
 	18 4,12	default:leaves 1
-	18 1,9	default:pine_needles
-	18 5,13	default:pine_needles 1
-	18 2,10	default:aspen_leaves
-	18 6,14	default:aspen_leaves 1
-	18 3,11	default:jungleleaves
-	18 7,15	default:jungleleaves 1
+	18 1,9	default:spruce_leaves
+	18 5,13	default:spruce_leaves 1
+	18 2,10	default:birch_leaves
+	18 6,14	default:birch_leaves 1
+	18 3,11	default:jungle_leaves
+	18 7,15	default:jungle_leaves 1
 	161 0,8	default:acacia_leaves
 	161 4,12	default:acacia_leaves 1
-	161 1,9	default:leaves
-	161 5,13	default:leaves 1
+	161 1,9	default:oak_leaves
+	161 5,13	default:oak_leaves 1	// TODO: find out what this really is. If Dark Oak, leave as oak. If regular oak, change to default:leaves
 	162 0	default:acacia_tree 0
 	162 4	default:acacia_tree 18
 	162 8	default:acacia_tree 9
-	162 1	default:tree 0
-	162 5	default:tree 18
-	162 9	default:tree 9
+	162 1	default:oak_leaves 0
+	162 5	default:oak_leaves 18	// TODO: find out what this really is. If Dark Oak, leave as oak. If regular oak, change to default:leaves
+	162 9	default:oak_leaves 9	// TODO: find out what this really is. If Dark Oak, leave as oak. If regular oak, change to default:leaves
 	162 12	default:acacia_tree
-	162 13	default:tree
+	162 13	default:oak_leaves	// TODO: find out what this really is. If Dark Oak, leave as oak. If regular oak, change to default:leaves
 
 #endif
 
-//19	default:nyancat_rainbow			// was removed from mtg
+19	sponge:sponge			// BenjieFiftysix/sponge works well: https://github.com/BenjieFiftysix/sponge.git
 20	default:glass
-21	lapis:stone_with_lapis
-22	lapis:lapisblock
+21	lapis:stone_with_lapis		// TODO: implement this in Bucket_Game
+22	lapis:lapisblock		// TODO: implement this in Bucket_Game
+// 23	decoblocks:dartblock		// this keeps shooting at whatever entity walks by, even if unpowered
+23	pipeworks:deployer_off		// TODO: get inventory (deployer works like a dispenser)
 24	default:sandstone			// TODO: Sandstone type
+24 1	tsm_pyramids:deco_stone2   // chiseled sandstone (deco_stone2 is sandstone_with_men)
+24 2	default:sandstone_block	// smooth sandstone
 
 25	mesecons_noteblock:noteblock		// FIXME: get pitch from entity data
 
@@ -285,7 +299,7 @@
 26 10	beds:bed_top 0
 26 11	beds:bed_top 1
 
-27	carts:powerrail				// Powered rail
+27	carts:meseconrail			// TODO: implement this in Poikilos' turingcarts (provides movement only if receives power)
 28	carts:rail				// Detector rail
 
 //sticky piston
@@ -433,7 +447,7 @@
 
 51	fire:basic_flame
 
-						// 52 monster spawner
+52	codermobs:dungeon_spawner
 
 53 0	stairs:stair_wood 1
 53 1	stairs:stair_wood 3
@@ -450,7 +464,8 @@
 54 4	default:chest 1
 54 5	default:chest 3
 
-55	mesecons:wire_11111111_off		// FIXME: manually fit wires based on neighbors
+//55	mesecons:wire_11111111_off		// FIXME: manually fit wires based on neighbors
+55	mesecons:wire_omnidirectional_off	// TODO: implement self-connecting nodes
 
 56	default:stone_with_diamond
 57	default:diamondblock
@@ -571,7 +586,7 @@
 82	default:clay
 83	default:papyrus
 
-85	default:fence_wood
+85	mobs:fence_wood				// All Minecraft fences block mobs.
 
 86	crops:pumpkin				// rotates randomly
 
@@ -584,6 +599,24 @@
 	90 1	nether:portal 12
 	90 2	nether:portal 1
 #endif
+91	farming:jackolantern
+92	pie:pie_0
+//93 0	mesecons_repeater:repeater_off 3		// TODO: implement this in Bucket_Game: it is just an omnidirectional mesecon wire, since mesecon doesn't have attenuation like redstone (no repeater is really necessary in Minetest)
+//93 1	mesecons_repeater:repeater_off 0
+//93 2	mesecons_repeater:repeater_off 1
+//93 3	mesecons_repeater:repeater_off 2
+//93 4	mesecons_repeater:repeater_off 3
+//93 5	mesecons_repeater:repeater_off 0
+//93 6	mesecons_repeater:repeater_off 1
+//93 7	mesecons_repeater:repeater_off 2
+//93 8	mesecons_repeater:repeater_off 3
+//93 9	mesecons_repeater:repeater_off 0
+//93 10	mesecons_repeater:repeater_off 1
+//93 11	mesecons_repeater:repeater_off 2
+//93 12	mesecons_repeater:repeater_off 3
+//93 13	mesecons_repeater:repeater_off 0
+//93 14	mesecons_repeater:repeater_off 1
+//93 15	mesecons_repeater:repeater_off 2
 
 93 0	mesecons_delayer:delayer_off_1 3
 93 1	mesecons_delayer:delayer_off_1 0
@@ -618,7 +651,22 @@
 94 13	mesecons_delayer:delayer_on_4 0
 94 14	mesecons_delayer:delayer_on_4 1
 94 15	mesecons_delayer:delayer_on_4 2
-
+95 0	decoblocks:white_glass
+95 1	decoblocks:orange_glass
+95 2	decoblocks:magenta_glass
+95 3	decoblocks:cyan_glass		// replaces "light blue"
+95 4	decoblocks:yellow_glass
+95 5	decoblocks:green_glass		// replaces "lime"
+95 6	decoblocks:pink_glass
+95 7	decoblocks:darkgrey_glass	// replaces "gray"
+95 8	decoblocks:gray_glass		// replaces "light gray"
+95 9	decoblocks:dark cyan_glass	// TODO: implement this in Bucket_Game ("Cyan" in Minecraft, but actually dark)
+95 10	decoblocks:purple_glass
+95 11	decoblocks:blue_glass
+95 12	decoblocks:brown_glass
+95 13	decoblocks:darkgreen_glass	// replaces "green"
+95 14	decoblocks:red_glass
+95 15	decoblocks:black_glass
 96 0	doors:trapdoor 2
 96 1	doors:trapdoor 0
 96 2	doors:trapdoor 1
@@ -636,21 +684,27 @@
 96 14	doors:trapdoor_open 23
 96 15	doors:trapdoor_open 21
 
-97 0	default:stone				// Silverfish
-97 1	default:cobble
-97 2	default:stonebrick
-97 3	default:cobble
-97 4	default:cobble
-97 5	default:cobble
+// Stone nodes with silverfish:
+97 0	codermobs:monster_egg_stone		
+97 1	codermobs:monster_egg_cobble
+97 2	codermobs:monster_egg_stonebrick
+97 3	codermobs:monster_egg_moss_stonebrick	// TODO: implement this in codermobs (based on decoblocks:moss_stonebrick) or alias it; originally: Mossy stone brick with Silverfish aka "Mossy Stone Brick Monster Egg"
+97 4	codermobs:monster_egg_cracked_stonebrick	// TODO: implement this in codermobs (based on modernpack:cracked_stone) or alias it; originally: Cracked stone brick with Silverfish aka "Cracked Stone Brick Monster Egg"
+97 5	codermobs:monster_egg_centerstone	// TODO: implement this in codermobs (based on facade:stone_centerstone) or alias it; originally: Chiseled stone brick with Silverfish aka "Chiseled Stone Brick Monster Egg"
 
-98 0,1,2	default:stonebrick
-98 3	xdecor:stone_rune
+98 0	default:stonebrick
+98 1	decoblocks:moss_stonebrick
+98 2	modernpack:cracked_stone		// TODO: Make a gray version of this
+98 3	facade:stone_centerstone
 
+99	coderblocks:lmb_brown_mushroom_block	// TODO: implement a mushroom node crafted by combining 9 brown mushrooms (originally "Brown Mushroom Block")
+100	ethereal:mushroom
 101	xpanes:bar
 102	xpanes:pane_15				// FIXME: rotation, shape
 
 103	crops:melon				// rotates randomly
-
+// TODO: 102 // pumpkin stem
+// TODO: 103 // melon stem
 106 1	vines:side_middle 5			//Ignore errors about other 106 #'s.
 106 2	vines:side_middle 3			//The bits are toggleable; meaning you don't need both.
 106 4	vines:side_middle 4			//These 4 will cover all bases(N,E,S,W).
@@ -683,17 +737,13 @@
 109 6	stairs:stair_stonebrick 22
 109 7	stairs:stair_stonebrick 20
 
-110	default:dirt_with_grass			// Mycelium
+110	coderblocks:lmb_mycelium			// TODO: implement this in Bucket_game
 
 111	flowers:waterlily			// rotation done in code randomly
 
 #ifdef NETHER
 	112	nether:brick
-#endif
-
-113	default:fence_wood		// nothing better than this, sadly
-
-#ifdef NETHER
+	113	nether:fence_nether_brick		// TODO: All Minecraft fences block mobs (implement as option in Bucket_Game)
 	114 0	stairs:stair_nether_brick 1
 	114 1	stairs:stair_nether_brick 3
 	114 2	stairs:stair_nether_brick 2
@@ -702,15 +752,21 @@
 	114 5	stairs:stair_nether_brick 21
 	114 6	stairs:stair_nether_brick 22
 	114 7	stairs:stair_nether_brick 20
+#else
+	113	default:fence_wood
 #endif
-
+115	coderblocks:lmb_nether_wart	// TODO: implement this in Bucket_Game
 116	xdecor:enchantment_table
-
+117	coderblocks:lmb_potion_shelf	// TODO: make a 3D version for Bucket_Game
 118 0	xdecor:cauldron_empty
 118 1	xdecor:cauldron_empty		// FIXME: should be 1/3 full
 118 2	xdecor:cauldron_empty		// FIXME: should be 2/3 full
 118 3	xdecor:cauldron_empty		// FIXME: should be full
-
+//119	coderblocks:lmb_end_portal	// ignore: TODO: implement this in Bucket_Game
+120	mcl_portals:end_portal_frame
+120 1	mcl_portals:end_portal_frame_eye	// FIXME: 1 is just a guess
+121	coderblocks:lmb_end_stone	// TODO: implement this in Bucket_Game
+122	coderblocks:lmb_dragon_egg	// TODO: implement this in Bucket_Game
 123	mesecons_lightstone:lightstone_gray_off
 124	mesecons_lightstone:lightstone_gray_on
 
@@ -735,26 +791,26 @@
 	126 13	moretrees:slab_oak_planks 22
 #else
 	125 0	default:wood
-	125 1	default:pine_wood
-	125 2	default:aspen_wood
-	125 3	default:junglewood
+	125 1	default:spruce_wood
+	125 2	default:birch_wood
+	125 3	default:jungle_wood
 	125 4	default:acacia_wood
-	125 5	default:wood
+	125 5	default:oak_wood
 
 	126 0	stairs:slab_wood
 	126 8	stairs:slab_wood 22
-	126 1	stairs:slab_pine_wood
-	126 9	stairs:slab_pine_wood 22
-	126 2	stairs:slab_aspen_wood
-	126 10	stairs:slab_aspen_wood 22
+	126 1	stairs:slab_spruce_wood
+	126 9	stairs:slab_spruce_wood 22
+	126 2	stairs:slab_birch_wood		// TODO: implement this in Bucket_Game
+	126 10	stairs:slab_birch_wood 22	// TODO: implement this in Bucket_Game
 	126 3	stairs:slab_junglewood
 	126 11	stairs:slab_junglewood 22
 	126 4	stairs:slab_acacia_wood
 	126 12	stairs:slab_acacia_wood 22
-	126 5	stairs:slab_wood
-	126 13	stairs:slab_wood 22
+	126 5	stairs:slab_oak_wood		// TODO: implement this in Bucket_Game
+	126 13	stairs:slab_oak_wood 22		// TODO: implement this in Bucket_Game
 #endif
-
+127	farming:cocoa_pod			// TODO: I named this whatever was closest so it wouldn't get missed. use node version, whatever that is in Bucket_Game or farming redo (farming_plus:cocoa has alias to default:apple in farming/compatibility.lua currently; they probably should change; only cocoa_bean craftitem is implemented literally--there may be a node already though--see `crop = "farming:cocoa",` or nearby in /home/owner/minetest/games/Bucket_Game/mods/coderfood/farming/crops/cocoa.lua)
 128 0	stairs:stair_sandstone 1
 128 1	stairs:stair_sandstone 3
 128 2	stairs:stair_sandstone 2
@@ -764,12 +820,15 @@
 128 6	stairs:stair_sandstone 22
 128 7	stairs:stair_sandstone 20
 
-129	default:stone				// FIXME: emerald ore
+129	birthstones:stone_with_emerald
 
 130 2	xdecor:enderchest 2
 130 3	xdecor:enderchest 0
 130 4	xdecor:enderchest 1
 130 5	xdecor:enderchest 3
+131	coderblocks:lmb_tripwire_hook	// TODO: implement this in Bucket_Game
+132	coderblocks:lmb_tripwire	// TODO: implement this in Bucket_Game
+133	birthstones:emeraldblock
 
 #ifdef MORETREES
 	134 0	moretrees:stair_spruce_planks 1
@@ -799,23 +858,24 @@
 	136 6	moretrees:stair_sequoia_planks 22
 	136 7	moretrees:stair_sequoia_planks 20
 #else
-	134 0	stairs:stair_pine_wood 1
-	134 1	stairs:stair_pine_wood 3
-	134 2	stairs:stair_pine_wood 2
-	134 3	stairs:stair_pine_wood 0
-	134 4	stairs:stair_pine_wood 23
-	134 5	stairs:stair_pine_wood 21
-	134 6	stairs:stair_pine_wood 22
-	134 7	stairs:stair_pine_wood 20
+	134 0	stairs:stair_spruce_wood 1
+	134 1	stairs:stair_spruce_wood 3
+	134 2	stairs:stair_spruce_wood 2
+	134 3	stairs:stair_spruce_wood 0
+	134 4	stairs:stair_spruce_wood 23
+	134 5	stairs:stair_spruce_wood 21
+	134 6	stairs:stair_spruce_wood 22
+	134 7	stairs:stair_spruce_wood 20
 
-	135 0	stairs:stair_aspen_wood 1
-	135 1	stairs:stair_aspen_wood 3
-	135 2	stairs:stair_aspen_wood 2
-	135 3	stairs:stair_aspen_wood 0
-	135 4	stairs:stair_aspen_wood 23
-	135 5	stairs:stair_aspen_wood 21
-	135 6	stairs:stair_aspen_wood 22
-	135 7	stairs:stair_aspen_wood 20
+	// TODO: implement stairs:stair_birch_wood in Bucket_Game
+	135 0	stairs:stair_birch_wood 1
+	135 1	stairs:stair_birch_wood 3
+	135 2	stairs:stair_birch_wood 2
+	135 3	stairs:stair_birch_wood 0
+	135 4	stairs:stair_birch_wood 23
+	135 5	stairs:stair_birch_wood 21
+	135 6	stairs:stair_birch_wood 22
+	135 7	stairs:stair_birch_wood 20
 
 	136 0	stairs:stair_junglewood 1
 	136 1	stairs:stair_junglewood 3
@@ -828,11 +888,14 @@
 #endif
 
 137	mesecons_commandblock:commandblock_off	// FIXME: formspec
-
+138	beacon:blue		// requires beacon such as xisd's fork at https://framagit.org/xisd-minetest/beacon/blob/master/init.lua or beacon2 with aliases to beacon: https://github.com/Lunovox/beacon2
 139 1	walls:mossycobble
 139	walls:cobble
 
 140	flowerpot:empty		// code will plant right flower
+
+141	farming:carrot_8
+142	farming:potato_4
 
 143 0	mesecons_button:button_off 8
 143 1	mesecons_button:button_off 3
@@ -840,12 +903,23 @@
 143 3	mesecons_button:button_off 0
 143 4	mesecons_button:button_off 2
 143 5	mesecons_button:button_off 10
-
+144	decoblocks:human_skull
+145	anvil:anvil				// requires: anvil or Bucket_Game's anvil
 146 2	default:chest 2				// Trapped chest
 146 3	default:chest 0
 146 4	default:chest 1
 146 5	default:chest 3
-
+147	xdecor:pressure_wood_off		// replaces "Weighted Pressure Plate (light)
+148	xdecor:pressure_stone_off		// replaces "Weighted Pressure Plate (heavy)
+// FIXME: the comparator numbers (rotations) are guesses and may not exist
+149 0	coderblocks:lmb_comparator_off 3	// TODO: implement this in Bucket_Game
+149 1	coderblocks:lmb_comparator_off 0
+149 2	coderblocks:lmb_comparator_off 1
+149 3	coderblocks:lmb_comparator_off 2
+150 0	coderblocks:lmb_comparator_on 3		// TODO: implement this in Bucket_Game
+150 1	coderblocks:lmb_comparator_on 0
+150 2	coderblocks:lmb_comparator_on 1
+150 3	coderblocks:lmb_comparator_on 2
 151 0	mesecons_solarpanel:solar_panel_off 1
 151 1	mesecons_solarpanel:solar_panel_on 1
 151 2	mesecons_solarpanel:solar_panel_on 1
@@ -864,6 +938,9 @@
 151 15	mesecons_solarpanel:solar_panel_on 1
 
 152	default:mese
+
+// TODO: fix param2 for hopper
+154	hopper:hopper					// requires hopper or Bucket_Game's hopper
 
 #ifdef QUARTZ
 	153	quartz:quartz_ore
@@ -885,7 +962,7 @@
 #endif
 
 157	carts:rail					// activator rail
-
+158	coderblocks:lmb_dropper				// TODO: implement this in Bucket_Game
 159 0	hardenedclay:hardened_clay_white
 159 1	hardenedclay:hardened_clay_orange
 159 2	hardenedclay:hardened_clay_magenta
@@ -904,7 +981,7 @@
 159 15	hardenedclay:hardened_clay_black
 
 160	xpanes:pane					// no colors here sadly
-
+// 161-162 see above
 163 0	stairs:stair_acacia_wood 1
 163 1	stairs:stair_acacia_wood 3
 163 2	stairs:stair_acacia_wood 2
@@ -924,16 +1001,19 @@
 	164 6	moretrees:stair_oak_planks 22
 	164 7	moretrees:stair_oak_planks 20
 #else
-	164 0	stairs:stair_wood 1
-	164 1	stairs:stair_wood 3
-	164 2	stairs:stair_wood 2
-	164 3	stairs:stair_wood 0
-	164 4	stairs:stair_wood 23
-	164 5	stairs:stair_wood 21
-	164 6	stairs:stair_wood 22
-	164 7	stairs:stair_wood 20
+	164 0	stairs:stair_oak_wood 1	// TODO: implement this in Bucket_Game
+	164 1	stairs:stair_oak_wood 3
+	164 2	stairs:stair_oak_wood 2
+	164 3	stairs:stair_oak_wood 0
+	164 4	stairs:stair_oak_wood 23
+	164 5	stairs:stair_oak_wood 21
+	164 6	stairs:stair_oak_wood 22
+	164 7	stairs:stair_oak_wood 20
 #endif
-
+165	slimenodes:slime_solid_green	// requires slimenodes such as poikilos' fork or an alias such as to below:
+//165	coderblocks:lmb_slime	// TODO: make this bouncy
+//165	manaslimes:jungle_goo_block	// TODO: make this bouncy
+// TODO: 166 barrier
 167 0	doors:trapdoor_steel 2
 167 1	doors:trapdoor_steel 0
 167 2	doors:trapdoor_steel 1
@@ -950,7 +1030,10 @@
 167 13	doors:trapdoor_steel_open 20
 167 14	doors:trapdoor_steel_open 23
 167 15	doors:trapdoor_steel_open 21
-
+168 0	ocean:prismarine
+168 1	ocean:prismarine_brick
+168 2	ocean:prismarine_dark
+169	ocean:sea_lantern
 170	farming:straw
 
 171 0	carpet:white
@@ -969,18 +1052,26 @@
 171 13	carpet:dark_green
 171 14	carpet:red
 171 15	carpet:black
-
+172	xdecor:hard_clay	// TODO make a "red clay" (red-brown) version of this
 173	default:coalblock
-174	default:ice					// approx
+174	xdecor:packed_ice
 
 175 0	flowers:sunflower
-
+175 1	flowers:lilac	// TODO: implement lilac in Bucket_Game
 175 2	default:junglegrass
-
+175 3	default:fern_2	// large fern
+175 4	flowers:rose	// rose bush
+175 5	flowers:peony	// TODO: implement peony in Bucket_Game
+176	coderblocks:lmb_banner	// TODO: implement this in Bucket_Game: "free-standing banner"
+177	coderblocks:lmb_banner_wall	// TODO: implement this in Bucket_Game: "wall-mounted banner"
 // 178 is an inverted daylight sensor, cannot convert!
+178	coderblocks:lmb_inverted_daylight_sensor	 // TODO: implement this in Bucket_Game
 
-179 1	default:desert_stone			// approx
-179 2	default:desert_stone			// approx
+//179 1	facade:desert_sandstone_centerstone
+//179 2	default:desert_sandstone_block
+//179	default:desert_sandstone
+179 1	facade:desert_stone_centerstone
+179 2	default:desert_stone_block
 179	default:desert_stone
 
 180 0	stairs:stair_desert_stone 1
@@ -992,29 +1083,30 @@
 180 6	stairs:stair_desert_stone 22
 180 7	stairs:stair_desert_stone 20
 
-181	default:desert_stone
+181	default:desert_stone		// double slab
 
 182 8	stairs:slab_desert_stone 22
 182	stairs:slab_desert_stone
 
 
-183 0	doors:gate_pine_wood_closed 2
-183 1	doors:gate_pine_wood_closed 3
-183 2	doors:gate_pine_wood_closed 0
-183 3	doors:gate_pine_wood_closed 1
-183 4	doors:gate_pine_wood_open 2
-183 5	doors:gate_pine_wood_open 3
-183 6	doors:gate_pine_wood_open 0
-183 7	doors:gate_pine_wood_open 1
+183 0	doors:gate_spruce_wood_closed 2		// TODO: implement this in Bucket_Game
+183 1	doors:gate_spruce_wood_closed 3
+183 2	doors:gate_spruce_wood_closed 0
+183 3	doors:gate_spruce_wood_closed 1
+183 4	doors:gate_spruce_wood_open 2		// TODO: implement this in Bucket_Game
+183 5	doors:gate_spruce_wood_open 3
+183 6	doors:gate_spruce_wood_open 0
+183 7	doors:gate_spruce_wood_open 1
 
-184 0	doors:gate_aspen_wood_closed 2
-184 1	doors:gate_aspen_wood_closed 3
-184 2	doors:gate_aspen_wood_closed 0
-184 3	doors:gate_aspen_wood_closed 1
-184 4	doors:gate_aspen_wood_open 2
-184 5	doors:gate_aspen_wood_open 3
-184 6	doors:gate_aspen_wood_open 0
-184 7	doors:gate_aspen_wood_open 1
+	// TODO: implement gate_birch_wood_closed and gate_birch_wood_closed in Bucket_Game
+184 0	doors:gate_birch_wood_closed 2
+184 1	doors:gate_birch_wood_closed 3
+184 2	doors:gate_birch_wood_closed 0
+184 3	doors:gate_birch_wood_closed 1
+184 4	doors:gate_birch_wood_open 2
+184 5	doors:gate_birch_wood_open 3
+184 6	doors:gate_birch_wood_open 0
+184 7	doors:gate_birch_wood_open 1
 
 185 0	doors:gate_junglewood_closed 2
 185 1	doors:gate_junglewood_closed 3
@@ -1026,14 +1118,14 @@
 185 7	doors:gate_junglewood_open 1
 
 //dark oak
-186 0	doors:gate_wood_closed 2
-186 1	doors:gate_wood_closed 3
-186 2	doors:gate_wood_closed 0
-186 3	doors:gate_wood_closed 1
-186 4	doors:gate_wood_open 2
-186 5	doors:gate_wood_open 3
-186 6	doors:gate_wood_open 0
-186 7	doors:gate_wood_open 1
+186 0	doors:gate_oak_wood_closed 2		// TODO: implement this in Bucket_Game
+186 1	doors:gate_oak_wood_closed 3
+186 2	doors:gate_oak_wood_closed 0
+186 3	doors:gate_oak_wood_closed 1
+186 4	doors:gate_oak_wood_open 2		// TODO: implement this in Bucket_Game
+186 5	doors:gate_oak_wood_open 3
+186 6	doors:gate_oak_wood_open 0
+186 7	doors:gate_oak_wood_open 1
 
 187 0	doors:gate_acacia_wood_closed 2
 187 1	doors:gate_acacia_wood_closed 3
@@ -1044,9 +1136,10 @@
 187 6	doors:gate_acacia_wood_open 0
 187 7	doors:gate_acacia_wood_open 1
 
+// TODO: All Minecraft fences block mobs (implement [as option?] in Bucket_Game)
 
-188	default:fence_pine_wood
-189	default:fence_aspen_wood
+188	default:fence_spruce_wood		// TODO: implement this in Bucket_Game
+189	default:fence_birch_wood		// TODO: implement this in Bucket_Game
 190	default:fence_junglewood
 191	default:fence_wood
 192	default:fence_acacia_wood
@@ -1057,6 +1150,90 @@
 196	air					// door parts get fixed up in code
 197	air					// door parts get fixed up in code
 
+//198 // TODO: "end rod" only necessary for recent versions of Minecraft
+//199 // TODO: "chorus plant" only necessary for recent versions of Minecraft
+//200 // TODO: "chorus flower" only necessary for recent versions of Minecraft
+//201 // TODO: "purpur block" only necessary for recent versions of Minecraft
+//202 // TODO: "purpur pillar" only necessary for recent versions of Minecraft
+202 0	mcl_end:purpur_pillar	// Default, vector pointing upward, with a MC blockstate for Y
+202 4	mcl_end:purpur_pillar 12	// East,West pointing vectors with a MC blockstate for X
+202 8	mcl_end:purpur_pillar 6	// North,South pointing vectors with a MC blockstate for Z
+//203 // TODO: "purpur stairs" only necessary for recent versions of Minecraft
+//204 // TODO: "purpur double slab" only necessary for recent versions of Minecraft
+//205 // TODO: "purpur slab" only necessary for recent versions of Minecraft
+206	coderblocks:lmb_end_stone_brick	//TODO: implement this in Bucket_Game
+//207 // TODO: "beatroot block" only necessary for recent versions of Minecraft
+//208 // TODO: "grass path" only necessary for recent versions of Minecraft
+//209	coderblocks:lmb_end_gateway	// TODO: implement this in Bucket_Game // ignore: "end gateway"
+212	coderblocks:lmb_frosted_ice	// TODO: implement this in Bucket_Game
+213	coderblocks:lmb_lava_rock
+216	decoblocks:bone_pillar	// replaces "bone block"
+// TODO: implement and leather armor chain_mail in kc_modpack: see also xtraarmor chain mail (https://forum.minetest.org/viewtopic.php?f=11&t=16645)
+// TODO: fill in this big gap here :asdf:
+268	default:gold_ingot
+268	default:sword_steel
+268	default:sword_wood
+269	default:shovel_wood
+270	default:pick_wood
+271	default:axe_wood
+
+
+272	default:sword_stone
+273	default:shovel_stone
+274	default:pick_stone
+275	default:axe_stone
+
+
+276	default:sword_diamond
+277	default:shovel_diamond
+278	default:pick_diamond
+279	default:axe_diamond
+
+280	default:stick
+281	farming:bowl
+282	farming:beetroot_soup	// replaces "mushroom soup"
+283	default:sword_mese	// replaces "golden sword"
+284	default:shovel_mese	// replaces "golden shovel"
+285	default:pick_mese	// replaces "golden pickaxe"
+286	default:axe_mese	// replaces "golden axe"
+287	farming:string
+288	mobs:feather
+289	tnt:gunpowder
+290	farming:hoe_wood
+291	farming:hoe_stone
+292	farming:hoe_steel
+293	birthstones:hoe_diamond
+294	farming:hoe_gold	// TODO: implement this in Bucket_Game
+295	farming:seed_wheat
+296	farming:wheat
+297	farming:bread
+298	kc_armor:boots_leather
+299	kc_armor:chestplate_leather
+300	kc_armor:leggings_leather
+301	kc_armor:boots_leather
+302	kc_armor:boots_chain_mail
+303	kc_armor:chestplate_chain_mail
+304	kc_armor:leggings_chain_mail
+305	kc_armor:boots_chain_mail
+306	3d_armor:boots_steel
+307	3d_armor:chestplate_steel
+308	3d_armor:leggings_steel
+309	3d_armor:boots_steel
+310	3d_armor:boots_diamond
+311	3d_armor:chestplate_diamond
+312	3d_armor:leggings_diamond
+313	3d_armor:boots_diamond
+314	3d_armor:boots_gold
+315	3d_armor:chestplate_gold
+316	3d_armor:leggings_gold
+317	3d_armor:boots_gold
+318	default:flint
+319	mobs:pork_raw
+320	mobs:pork_cooked
+321	homedecor:painting_random	// TODO: implement this in Bucket_Game: randomize this (homedecor:painting_<randint(1,20)>)
+322 0	coderfruit:golden_apple		// TODO: implement this in Bucket_Game, no recipe, not in creative inventory
+322 1	coderfruit:enchanted_golden_apple		// TODO: implement this in Bucket_Game, no recipe, not in creative inventory
+323	signs:sign_yard
 324 0,4	doors:door_wood_b_1 2
 324 1,5	doors:door_wood_b_1 3
 324 2,6	doors:door_wood_b_1 0
@@ -1065,7 +1242,59 @@
 324 9	doors:door_wood_t_1
 324 10	doors:door_wood_t_1
 324 11	doors:door_wood_t_1
-
+325	bucket:empty
+326	bucket:bucket_water
+327	bucket:bucket_lava
+328	carts:cart
+329	mobs:saddle
+331	mesecons:wire_00000000_off	// replaces "redstone"
+332	mobs:snowball
+333	boats:boat	// replaces "oak boat"
+334	mobs:leather
+335	food:bucket_milk
+336	default:clay_brick
+337 	default:clay_lump
+338	default:papyrus		// replaces "sugar cane"
+339	default:paper
+340	default:book
+341	slimenodes:slime_green	// requires slimenodes such as poikilos' fork or an alias such as to below:
+//341	manaslimes:jungle_slime
+344	codermobs:chicken_egg
+345	compassgps:c1			// requires compassgps; see also
+346	fishing:pole_wood	// requires fishing: https://github.com/MinetestForFun/fishing.git seems to work best (as opposed to wulfsdad's)
+347	coderblocks:lmb_clock		// TODO: implement realtime display in inventory slot?
+349 0	fishing:fish_raw	// raw fish
+349 1	fishing:pike_raw	// replaces "raw salmon"
+349 2	fishing:clownfish_raw
+349 3	fishing:exoticfish_raw	// replaces "puffer fish"
+350 0	fishing:fish_cooked
+350 1	fishing:pike_cooked	// replaces "cooked salmon"
+// 348 	// "glowstone dust"
+// 351 0	default:coal_lump	// replaces "ink sack"
+351 0	coderblocks:lmb_ink_bottle	// TODO: implement this craftitem in Bucket_Game; replaces "ink sack"
+351 1	dye:red
+351 2	dye:dark_green
+// 351 3	dye:brown			// there is no brown dye in Minecraft, only cocoa beans
+351 3	farming:cocoa_beans			// there is no brown dye in Minecraft, only cocoa beans
+351 4	dye:blue
+351 5	dye:violet
+351 6	dye:dark_cyan			// TODO: implement this in Bucket_Game; replaces "Cyan" which is actually dark
+351 7	dye:grey			// replaces "light gray"
+351 8	dye:dark_grey			// replaces "grey"
+351 9	// TODO: implement this craftitem in Bucket_Game
+351 10	dye:pink			// TODO: implement this in Bucket_Game
+351 11	dye:yellow
+351 12	dye:light_blue			// TODO: implement this in Bucket_Game
+351 13	dye:magenta
+351 14	dye:orange
+// 351 15	dye:white			// there is no white dye in Minecraft, only bonemeal
+351 15	bonemeal:bonemeal			// there is no white dye in Minecraft, only bonemeal
+352	bonemeal:bone
+353	farming:sugar
+354	pie:pie_0
+359	mobs:shears
+388	birthstones:emerald
+389	itemframes:frame		// TODO: get inventory
 // Below here are non-MC blocks. We need to put these blocks in the
 // table to make translation a bit easier
 
@@ -1091,13 +1320,13 @@
 940 11	flowerpot:flowers_dandelion_white
 940 12	flowerpot:flowers_viola
 940 13	flowerpot:flowers_dandelion_white
-940 14	flowerpot:default_sapling
-940 15	flowerpot:default_pine_sapling
+940 14	flowerpot:default_oak_sapling
+940 15	flowerpot:default_spruce_sapling
 // overflow
 #ifdef MORETREES
 	941 0	moretrees:birch_sapling
 #else
-	941 0	flowerpot:default_aspen_sapling
+	941 0	flowerpot:default_birch_sapling		// TODO: implement this in Bucket_Game
 #endif
 941 1	flowerpot:default_junglesapling
 941 2	flowerpot:default_acacia_sapling
