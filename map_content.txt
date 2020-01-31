@@ -354,17 +354,17 @@
 35 0	wool:white
 35 1	wool:orange
 35 2	wool:magenta
-35 3	wool:blue
+35 3	wool:light_blue	// TODO: implement wool:light_blue in Bucket_Game
 35 4	wool:yellow
-35 5	wool:green
+35 5	wool:green	// replaces "lime"
 35 6	wool:pink
-35 7	wool:dark_grey
-35 8	wool:grey
+35 7	wool:dark_grey	// replaces "gray"
+35 8	wool:grey	// replaces "light gray"
 35 9	wool:cyan
-35 10	wool:violet
+35 10	wool:violet	// replaces "purple"
 35 11	wool:blue
 35 12	wool:brown
-35 13	wool:dark_green
+35 13	wool:dark_green	// replaces "green" which is actually dark
 35 14	wool:red
 35 15	wool:black
 
@@ -654,13 +654,13 @@
 95 0	decoblocks:white_glass
 95 1	decoblocks:orange_glass
 95 2	decoblocks:magenta_glass
-95 3	decoblocks:cyan_glass		// replaces "light blue"
+95 3	decoblocks:light_blue_glass	// TODO: implement this in Bucket_Game
 95 4	decoblocks:yellow_glass
 95 5	decoblocks:green_glass		// replaces "lime"
 95 6	decoblocks:pink_glass
 95 7	decoblocks:darkgrey_glass	// replaces "gray"
 95 8	decoblocks:gray_glass		// replaces "light gray"
-95 9	decoblocks:dark cyan_glass	// TODO: implement this in Bucket_Game; replaces "cyan" in Minecraft, but actually that is dark cyan
+95 9	decoblocks:cyan_glass
 95 10	decoblocks:purple_glass
 95 11	decoblocks:blue_glass
 95 12	decoblocks:brown_glass
@@ -966,22 +966,37 @@
 159 0	hardenedclay:hardened_clay_white
 159 1	hardenedclay:hardened_clay_orange
 159 2	hardenedclay:hardened_clay_magenta
-159 3	hardenedclay:hardened_clay_light_blue
+159 3	hardenedclay:hardened_clay_light_blue	// TODO: implement this if doesn't exist
 159 4	hardenedclay:hardened_clay_yellow
-159 5	hardenedclay:hardened_clay_lime
+159 5	hardenedclay:hardened_clay_lime		// FIXME: called green in minetest usually
 159 6	hardenedclay:hardened_clay_pink
-159 7	hardenedclay:hardened_clay_gray
-159 8	hardenedclay:hardened_clay_light_gray
+159 7	hardenedclay:hardened_clay_gray		// FIXME: called light_gray in minetest usually
+159 8	hardenedclay:hardened_clay_light_gray	// FIXME: called gray in minetest usually
 159 9	hardenedclay:hardened_clay_cyan
-159 10	hardenedclay:hardened_clay_purple
+159 10	hardenedclay:hardened_clay_purple	// FIXME: called violet in minetest usually
 159 11	hardenedclay:hardened_clay_blue
 159 12	hardenedclay:hardened_clay_brown
-159 13	hardenedclay:hardened_clay_green
+159 13	hardenedclay:hardened_clay_green	// FIXME: called dark_green in minetest usually
 159 14	hardenedclay:hardened_clay_red
 159 15	hardenedclay:hardened_clay_black
 
-160	xpanes:pane					// no colors here sadly
-// 161-162 see above
+160 0	xpanes:white_glass_flat
+160 1	xpanes:orange_glass_flat
+160 2	xpanes:magenta_glass_flat
+160 3	xpanes:light_blue_glass_flat	// TODO: implement this in Bucket_Game
+160 4	xpanes:yellow_glass_flat
+160 5	xpanes:green_glass_flat		// replaces "lime"
+160 6	xpanes:pink_glass_flat
+160 7	xpanes:dark_gray_glass_flat	// replaces "gray" which is actually dark
+160 8	xpanes:gray_glass_flat		// replaces "light gray"
+160 9	xpanes:cyan_glass_flat
+160 10	xpanes:purple_glass_flat	// FIXME: usually called violet in Minetest
+160 11	xpanes:blue_glass_flat
+160 12	xpanes:brown_glass_flat
+160 13	xpanes:darkgreen_glass_flat	// replaces "green" which is actually dark
+160 14	xpanes:red_glass_flat
+160 15	xpanes:black_glass_flat
+// 161-162 see trees in clauses further up
 163 0	stairs:stair_acacia_wood 1
 163 1	stairs:stair_acacia_wood 3
 163 2	stairs:stair_acacia_wood 2
@@ -1039,7 +1054,7 @@
 171 0	carpet:white
 171 1	carpet:orange
 171 2	carpet:magenta
-171 3	carpet:blue
+171 3	carpet:light_blue	// TODO implement this
 171 4	carpet:yellow
 171 5	carpet:green
 171 6	carpet:pink
@@ -1298,15 +1313,15 @@
 351 2	dye:dark_green			// replaces "green"
 // 351 3	dye:brown		// there is no brown dye in Minecraft, only cocoa beans
 351 3	farming:cocoa_beans		// there is no brown dye in Minecraft, only cocoa beans
-351 4	dye:blue
+351 4	dye:blue			// there is no blue dye in Minecraft, only "lapis lazuli"
 351 5	dye:violet			// replaces "purple"
-351 6	dye:dark_cyan			// TODO: implement this in Bucket_Game; replaces "Cyan" which is actually dark
+351 6	dye:cyan
 351 7	dye:grey			// replaces "light gray"
-351 8	dye:dark_grey			// replaces "grey"
+351 8	dye:dark_grey			// replaces "grey" which is actually dark
 351 9	dye:pink
 351 10	dye:green			// replaces "lime dye"
 351 11	dye:yellow
-351 12	dye:cyan			// replaces "light blue dye"
+351 12	dye:light_blue			// TODO: implement this in Bucket_Game
 351 13	dye:magenta
 351 14	dye:orange
 // 351 15	dye:white			// there is no white dye in Minecraft, only bonemeal
