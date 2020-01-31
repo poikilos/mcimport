@@ -1170,6 +1170,17 @@
 216	decoblocks:bone_pillar	// replaces "bone block"
 // TODO: implement and leather armor chain_mail in kc_modpack: see also xtraarmor chain mail (https://forum.minetest.org/viewtopic.php?f=11&t=16645)
 // TODO: fill in this big gap here :asdf:
+//217		// "structure void"
+//218		// "observer"
+//219-234	// shulker boxes	
+//235-250	// glazed terracotta
+251	basic_materials:concrete_block
+// 251:0-251:15  // concrete in various colors
+252	default:silver_sand
+// 252:0-252:15  // concrete powder (sand-like) in various colors
+//253	// unused (?)
+//254	// unused (?)
+//255	// "structure block"	
 256	default:shovel_steel
 257	default:pick_steel
 258	default:axe_steel
