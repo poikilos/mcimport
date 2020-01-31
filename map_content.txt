@@ -358,7 +358,7 @@
 35 4	wool:yellow
 35 5	wool:green	// replaces "lime"
 35 6	wool:pink
-35 7	wool:dark_grey	// replaces "gray"
+35 7	wool:dark_grey	// replaces "gray" which is actually dark
 35 8	wool:grey	// replaces "light gray"
 35 9	wool:cyan
 35 10	wool:violet	// replaces "purple"
@@ -658,13 +658,13 @@
 95 4	decoblocks:yellow_glass
 95 5	decoblocks:green_glass		// replaces "lime"
 95 6	decoblocks:pink_glass
-95 7	decoblocks:darkgrey_glass	// replaces "gray"
+95 7	decoblocks:darkgrey_glass	// replaces "gray" which is actually dark
 95 8	decoblocks:gray_glass		// replaces "light gray"
 95 9	decoblocks:cyan_glass
-95 10	decoblocks:purple_glass
+95 10	decoblocks:purple_glass		// FIXME: this is usually called "violet" in Minetest
 95 11	decoblocks:blue_glass
 95 12	decoblocks:brown_glass
-95 13	decoblocks:darkgreen_glass	// replaces "green"
+95 13	decoblocks:darkgreen_glass	// replaces "green" which is actually dark
 95 14	decoblocks:red_glass
 95 15	decoblocks:black_glass
 96 0	doors:trapdoor 2
@@ -700,11 +700,11 @@
 99	coderblocks:lmb_brown_mushroom_block	// TODO: implement a mushroom node crafted by combining 9 brown mushrooms (originally "Brown Mushroom Block")
 100	ethereal:mushroom
 101	xpanes:bar
-102	xpanes:pane_15				// FIXME: rotation, shape
+102	xpanes:pane				// FIXME: (fixed by removing _15 from name?) rotation, shape
 
 103	crops:melon				// rotates randomly
-// TODO: 102 // pumpkin stem
-// TODO: 103 // melon stem
+// ignore: 102 // pumpkin stem
+// ignore: 103 // melon stem
 106 1	vines:side_middle 5			//Ignore errors about other 106 #'s.
 106 2	vines:side_middle 3			//The bits are toggleable; meaning you don't need both.
 106 4	vines:side_middle 4			//These 4 will cover all bases(N,E,S,W).
@@ -963,22 +963,23 @@
 
 157	carts:rail					// activator rail
 158	coderblocks:lmb_dropper				// TODO: implement this in Bucket_Game
-159 0	hardenedclay:hardened_clay_white
-159 1	hardenedclay:hardened_clay_orange
-159 2	hardenedclay:hardened_clay_magenta
-159 3	hardenedclay:hardened_clay_light_blue	// TODO: implement this if doesn't exist
-159 4	hardenedclay:hardened_clay_yellow
-159 5	hardenedclay:hardened_clay_lime		// FIXME: called green in minetest usually
-159 6	hardenedclay:hardened_clay_pink
-159 7	hardenedclay:hardened_clay_gray		// FIXME: called light_gray in minetest usually
-159 8	hardenedclay:hardened_clay_light_gray	// FIXME: called gray in minetest usually
-159 9	hardenedclay:hardened_clay_cyan
-159 10	hardenedclay:hardened_clay_purple	// FIXME: called violet in minetest usually
-159 11	hardenedclay:hardened_clay_blue
-159 12	hardenedclay:hardened_clay_brown
-159 13	hardenedclay:hardened_clay_green	// FIXME: called dark_green in minetest usually
-159 14	hardenedclay:hardened_clay_red
-159 15	hardenedclay:hardened_clay_black
+// requires baked_clay mod or Bucket_Game's baked_clay:
+159 0	baked_clay:white
+159 1	baked_clay:orange
+159 2	baked_clay:magenta
+159 3	baked_clay:light_blue	// TODO: implement this in Bucket_Game
+159 4	baked_clay:yellow
+159 5	baked_clay:green	// replaces "lime"
+159 6	baked_clay:pink
+159 7	baked_clay:dark_gray	// replaces "gray" which is actually dark
+159 8	baked_clay:gray		// replaces "light gray"
+159 9	baked_clay:cyan
+159 10	baked_clay:violet	// replaces "purple"
+159 11	baked_clay:blue
+159 12	baked_clay:brown
+159 13	baked_clay:dark_green	// replaces "green" which is actually dark
+159 14	baked_clay:red
+159 15	baked_clay:black
 
 160 0	xpanes:white_glass_flat
 160 1	xpanes:orange_glass_flat
@@ -1054,20 +1055,20 @@
 171 0	carpet:white
 171 1	carpet:orange
 171 2	carpet:magenta
-171 3	carpet:light_blue	// TODO implement this
+171 3	carpet:light_blue	// TODO: implement this
 171 4	carpet:yellow
-171 5	carpet:green
+171 5	carpet:green		// replaces "lime"
 171 6	carpet:pink
-171 7	carpet:dark_grey
-171 8	carpet:grey
+171 7	carpet:dark_grey	// replaces "gray" which is actually dark
+171 8	carpet:grey		// replaces "light gray"
 171 9	carpet:cyan
-171 10	carpet:violet
+171 10	carpet:violet		// replaces "purple"
 171 11	carpet:blue
 171 12	carpet:brown
-171 13	carpet:dark_green
+171 13	carpet:dark_green	// replaces "green" which is actually dark
 171 14	carpet:red
 171 15	carpet:black
-172	xdecor:hard_clay	// TODO make a "red clay" (red-brown) version of this
+172	xdecor:hard_clay	// TODO: make a "red clay" (red-brown) version of this
 173	default:coalblock
 174	xdecor:packed_ice
 
@@ -1310,7 +1311,7 @@
 // 351 0	default:coal_lump	// replaces "ink sack"
 351 0	coderblocks:lmb_ink_bottle	// TODO: implement this craftitem in Bucket_Game; replaces "ink sack"
 351 1	dye:red
-351 2	dye:dark_green			// replaces "green"
+351 2	dye:dark_green			// replaces "green" which is actually dark
 // 351 3	dye:brown		// there is no brown dye in Minecraft, only cocoa beans
 351 3	farming:cocoa_beans		// there is no brown dye in Minecraft, only cocoa beans
 351 4	dye:blue			// there is no blue dye in Minecraft, only "lapis lazuli"
@@ -1319,7 +1320,7 @@
 351 7	dye:grey			// replaces "light gray"
 351 8	dye:dark_grey			// replaces "grey" which is actually dark
 351 9	dye:pink
-351 10	dye:green			// replaces "lime dye"
+351 10	dye:green			// replaces "lime"
 351 11	dye:yellow
 351 12	dye:light_blue			// TODO: implement this in Bucket_Game
 351 13	dye:magenta
