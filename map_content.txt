@@ -1281,7 +1281,8 @@
 341	slimenodes:slime_green	// requires slimenodes such as poikilos' fork or an alias such as to below:
 //341	manaslimes:jungle_slime
 344	codermobs:chicken_egg
-345	compassgps:c1			// requires compassgps; see also
+// 345	compassgps:c1			// requires compassgps
+345	compass:0			// requires ccompass (has alias to compass:0) or that on which it is based: Echo's compass which was from .net/viewtopic.php?id=3785
 346	fishing:pole_wood	// requires fishing: https://github.com/MinetestForFun/fishing.git seems to work best (as opposed to wulfsdad's)
 347	coderblocks:lmb_clock		// TODO: implement realtime display in inventory slot?
 349 0	fishing:fish_raw	// raw fish
