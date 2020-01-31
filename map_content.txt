@@ -1192,10 +1192,10 @@
 280	default:stick
 281	farming:bowl
 282	farming:beetroot_soup	// replaces "mushroom soup"
-283	default:sword_mese	// replaces "golden sword"
-284	default:shovel_mese	// replaces "golden shovel"
-285	default:pick_mese	// replaces "golden pickaxe"
-286	default:axe_mese	// replaces "golden axe"
+283	default:sword_gold
+284	default:shovel_gold
+285	default:pick_gold
+286	default:axe_gold
 287	farming:string
 288	mobs:feather
 289	tnt:gunpowder
