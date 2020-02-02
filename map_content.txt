@@ -1301,22 +1301,22 @@
 250	baked_clay:black		// replaces "black glazed terra cotta" which actually has splatters of red
 // 251	basic_materials:concrete_block
 // 251:0-251:15 	// concrete in various colors
-251 0	baked_clay:white
-251 1	baked_clay:orange
-251 2	baked_clay:magenta
-251 3	baked_clay:light_blue	// TODO: implement this in Bucket_Game (light blue)
-251 4	baked_clay:yellow
-251 5	baked_clay:green	// replaces "lime"
-251 6	baked_clay:pink
-251 7	baked_clay:dark_gray	// replaces "gray" which is actually dark
-251 8	baked_clay:gray		// replaces "light gray"
-251 9	baked_clay:cyan
-251 10	baked_clay:violet	// replaces "purple"
-251 11	baked_clay:blue
-251 12	baked_clay:brown
-251 13	baked_clay:dark_green	// replaces "green" which is actually dark
-251 14	baked_clay:red
-251 15	baked_clay:black
+251 0	baked_clay:white	// replaces "white concrete"
+251 1	baked_clay:orange	// replaces "orange concrete"
+251 2	baked_clay:magenta	// replaces "magenta concrete"
+251 3	baked_clay:light_blue	// TODO: implement this in Bucket_Game; replaces "light blue concrete"
+251 4	baked_clay:yellow	// replaces "yellow concrete"
+251 5	baked_clay:green	// replaces "lime concrete"
+251 6	baked_clay:pink		// replaces "pink concrete"
+251 7	baked_clay:dark_gray	// replaces "gray concrete" which is actually dark
+251 8	baked_clay:gray		// replaces "light gray concrete"
+251 9	baked_clay:cyan		// replaces "cyan concrete"
+251 10	baked_clay:violet	// replaces "purple concrete"
+251 11	baked_clay:blue		// replaces "blue concrete"
+251 12	baked_clay:brown	// replaces "brown concrete"
+251 13	baked_clay:dark_green	// replaces "green concrete" which is actually dark
+251 14	baked_clay:red		// replaces "red concrete"
+251 15	baked_clay:black	// replaces "black concrete"
 
 
 252	default:silver_sand
