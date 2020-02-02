@@ -361,6 +361,20 @@
 35 7	wool:dark_grey	// replaces "gray" which is actually dark
 35 8	wool:grey	// replaces "light gray"
 35 9	wool:cyan
+// FIXME: some "violet" (supposed to be a cool color) things in Minetest
+// are actually purple (warm or neutral color; 1:1 ratio of blue & red).
+// See <https://steemit.com/steemstem/@jepper/
+// difference-between-purple-and-violet>.
+// - One option is to rename them to purple and add an actual violet
+//   - and change Minecraft's light blue to Minetest cyan
+//   - and change Minecraft's purple to a new Minetest purple
+//   - Some "violet" things in Minetest are actually violet like they
+//     should be:
+//     - Violet glass [cblocks]
+//     - Violet stone brick [cblocks]
+//     - Violet wooden planks [cblocks]
+//     - "*Violet Baked Clay*" [bakedclay]
+//     - "Violetpaper" [christmascraft]
 35 10	wool:violet	// replaces "purple"
 35 11	wool:blue
 35 12	wool:brown
@@ -766,7 +780,7 @@
 118 2	xdecor:cauldron_empty		// FIXME: should be 2/3 full
 118 3	xdecor:cauldron_empty		// FIXME: should be full
 //119	coderblocks:lmb_end_portal	// ignore: TODO: implement this in Bucket_Game
-120 1	mcl_portals:end_portal_frame_eye	// FIXME: 1 is just a guess for the version containing an eye
+// 120	mcl_portals:end_portal_frame_eye	// FIXME: In Java Edition "eye" block state can be true or false, and "facing" block state can be east, north, south, or west; in Bedrock Edition (doesn't matter) it is numeric.
 120	mcl_portals:end_portal_frame
 121	coderblocks:lmb_end_stone	// TODO: implement this in Bucket_Game
 122	coderblocks:lmb_dragon_egg	// TODO: implement this in Bucket_Game
@@ -926,7 +940,7 @@
 151 0	mesecons_solarpanel:solar_panel_off 1
 151 1	mesecons_solarpanel:solar_panel_on 1
 151 2	mesecons_solarpanel:solar_panel_on 1
-151 3	mesecons_solarpanel:solar_panel_on 1
+151 3	mesecons_solarpane386l:solar_panel_on 1
 151 4	mesecons_solarpanel:solar_panel_on 1
 151 5	mesecons_solarpanel:solar_panel_on 1
 151 6	mesecons_solarpanel:solar_panel_on 1
@@ -970,7 +984,7 @@
 159 0	baked_clay:white
 159 1	baked_clay:orange
 159 2	baked_clay:magenta
-159 3	baked_clay:light_blue	// TODO: implement this in Bucket_Game
+159 3	baked_clay:light_blue	// TODO: implement this in Bucket_Game (light blue)
 159 4	baked_clay:yellow
 159 5	baked_clay:green	// replaces "lime"
 159 6	baked_clay:pink
@@ -1081,6 +1095,37 @@
 175 3	default:fern_2	// large fern
 175 4	flowers:rose	// rose bush
 175 5	flowers:peony	// TODO: implement peony in Bucket_Game
+
+
+//region BANNERS
+// TODO: maybe use https://github.com/maikerumine/simple_banners but
+//   remove national flags (such as for games not in modern settings).
+// - not <https://github.com/nyje/banners-mod> too many modern flags,
+//   and the curved flag looks like a piece of wavy plastic.
+// - not [banner mod [WIP]](https://forum.minetest.org/viewtopic.php?f=9&t=11269)
+//   (preserved at https://github.com/poikilos/banner)--too many
+//   textures.
+// - not <https://forum.minetest.org/viewtopic.php?f=9&t=11269>: too
+//   many combinations (if light blue is added, there are 16 colors;
+//   light blue is NYI (Not Yet Implemented);
+//   OK if each is not a separate node):
+// from itertools import combinations
+// count = 0
+// clrs = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]  # 16:lightblue (NYI)
+// c = combinations(clrs, 2)
+// print(len(list(c)))
+//120
+// # but there is also element-to-itself combination (solid flag):
+// from itertools import combinations_with_replacement
+// cwr = combinations_with_replacement(clrs, 2)
+// print(len(list(cwr)))
+//136
+// # IF there are different orders as well (unsure):
+// from itertools import permutations
+// perm = permutations(clrs, 2)
+// print(len(list(perm)) + 16)  # +16 for solid banners
+//256
+
 // FIXME: the source values for rotations for banner and wall banner are guessed
 176 0	coderblocks:lmb_banner 2	// TODO: implement this in Bucket_Game: "free-standing banner"
 176 1	coderblocks:lmb_banner 3	// TODO: implement this in Bucket_Game: "free-standing banner"
@@ -1100,6 +1145,8 @@
 177 1	coderblocks:lmb_banner_wall 3	// TODO: implement this in Bucket_Game: "wall-mounted banner"
 177 2	coderblocks:lmb_banner_wall 4	// TODO: implement this in Bucket_Game: "wall-mounted banner"
 177 3	coderblocks:lmb_banner_wall 2	// TODO: implement this in Bucket_Game: "wall-mounted banner"
+//endregion BANNERS
+
 // 178 is an inverted daylight sensor, cannot convert!
 178	coderblocks:lmb_inverted_daylight_sensor		// TODO: implement this in Bucket_Game
 
@@ -1205,13 +1252,73 @@
 213	coderblocks:lmb_lava_rock
 216	decoblocks:bone_pillar	// replaces "bone block"
 // TODO: implement and leather armor chain_mail in kc_modpack: see also xtraarmor chain mail (https://forum.minetest.org/viewtopic.php?f=11&t=16645)
-// TODO: fill in this big gap here :asdf:
-//217		// "structure void"
-//218		// "observer"
-//219-234	// shulker boxes
-//235-250	// glazed terracotta
-251	basic_materials:concrete_block
+//217		// ignore: "structure void" (prevents overwriting a block when the structure is placed using a structure block; coderedit can already avoid overwriting things with air I think, and a void block is overkill in any case)
+// TODO: (low-priority; for Minecraft 1.11+ only) implement "observer": Emit a redstone signal when the block or fluid in front of it is updated; this must be a wall-mounted node so it can face any direction!
+// https://minecraft.gamepedia.com/Observer says 0x8 bit means powered
+218 0	mesecons_observer:observer_off 1
+218 1	mesecons_observer:observer_off 0
+218 2	mesecons_observer:observer_off 4
+218 3	mesecons_observer:observer_off 5
+218 4	mesecons_observer:observer_off 3
+218 5	mesecons_observer:observer_off 5
+218 8	mesecons_observer:observer_on 1
+218 9	mesecons_observer:observer_on 0
+218 10	mesecons_observer:observer_on 4
+218 11	mesecons_observer:observer_on 5
+218 12	mesecons_observer:observer_on 3
+218 13	mesecons_observer:observer_on 5
+219	default:chest	// replaces "white shulker box"
+220	default:chest	// replaces "orange shulker box"
+221	default:chest	// replaces "magenta shulker box"
+222	default:chest	// replaces "light blue shulker box"
+223	default:chest	// replaces "yellow shulker box"
+224	default:chest	// replaces "lime shulker box"
+225	default:chest	// replaces "pink shulker box"
+226	default:chest	// replaces "gray shulker box"
+227	default:chest	// replaces "light gray shulker box"
+228	default:chest	// replaces "cyan shulker box"
+229	default:chest	// replaces "purple shulker box"
+230	default:chest	// replaces "blue shulker box"
+231	default:chest	// replaces "brown shulker box"
+232	default:chest	// replaces "green shulker box"
+233	default:chest	// replaces "red shulker box"
+234	default:chest	// replaces "black shulker box"
+235	baked_clay:white		// replaces "white glazed terra cotta"
+236	baked_clay:orange		// replaces "white glazed terra cotta"
+237	baked_clay:magenta		// replaces "white glazed terra cotta"
+238	baked_clay:light_blue	// TODO: implement light blue in Bucket_Game; replaces "white glazed terra cotta"
+239	baked_clay:yellow		// replaces "white glazed terra cotta"
+240	baked_clay:green		// replaces "lime glazed terra cotta"
+241	baked_clay:pink			// replaces "pink glazed terra cotta"
+242	baked_clay:dark_gray	// replaces "gray glazed terra cotta" which is actually dark
+243	baked_clay:gray			// replaces "light gray glazed terra cotta"
+244	baked_clay:cyan			// replaces "cyan glazed terra cotta"
+245	baked_clay:violet		// replaces "purple glazed terra cotta"
+246	baked_clay:blue			// replaces "blue glazed terra cotta"
+247	baked_clay:brown		// replaces "brown glazed terra cotta"
+248	baked_clay:dark_green	// replaces "green glazed terra cotta" which is actually dark
+249	baked_clay:red			// replaces "red glazed terra cotta"
+250	baked_clay:black		// replaces "black glazed terra cotta" which actually has splatters of red
+// 251	basic_materials:concrete_block
 // 251:0-251:15 	// concrete in various colors
+251 0	baked_clay:white
+251 1	baked_clay:orange
+251 2	baked_clay:magenta
+251 3	baked_clay:light_blue	// TODO: implement this in Bucket_Game (light blue)
+251 4	baked_clay:yellow
+251 5	baked_clay:green	// replaces "lime"
+251 6	baked_clay:pink
+251 7	baked_clay:dark_gray	// replaces "gray" which is actually dark
+251 8	baked_clay:gray		// replaces "light gray"
+251 9	baked_clay:cyan
+251 10	baked_clay:violet	// replaces "purple"
+251 11	baked_clay:blue
+251 12	baked_clay:brown
+251 13	baked_clay:dark_green	// replaces "green" which is actually dark
+251 14	baked_clay:red
+251 15	baked_clay:black
+
+
 252	default:silver_sand
 // 252:0-252:15 	// concrete powder (sand-like) in various colors
 //253	// unused (?)
@@ -1368,8 +1475,8 @@
 356 13	mesecons_delayer:delayer_off_4 0
 356 14	mesecons_delayer:delayer_off_4 1
 356 15	mesecons_delayer:delayer_off_4 2
-357 farming:cookie
-//358 //<filled_map>
+357	farming:cookie
+358	mapp:map	// requires [mapp](https://github.com/4aiman/mapp.git): at least early versions of it are POSSIBLY VERY SLOW, but RealBadAngle <http://realbadangel.pl/mapp.zip> and others improved it later others, and the repo merged the changes--see .net/viewtopic.php?id=4922
 359	mobs:shears
 360	farming:melon_slice
 361	farming:pumpkin_slice	// In minetest, the slice for this is the seed; "Pumpkin Seeds"
@@ -1396,12 +1503,24 @@
 380	xdecor:cauldron_empty
 381	mcl_end:ender_eye				// TODO: implement this craftitem or an alias to it in Bucket_Game; "Eye of Ender"
 381		// "Glistering Melon"
+
 // TODO: Fill in all of these missing ids
+383	codermobs:ostrich_egg	// ignore: 383:4 to 383:120 (but there are some gaps) "Spawn *"
+//384		// ignore: "bottle o' enchanting"
+//385		// ignore: Fire Charge
+386	homedecor:book_brown	// "Writeable Book"
+387	homedecor:book_brown	// TODO: (urgent) get the text from the Minecraft "Written Book" (only id 387)
 388	birthstones:emerald
 389	itemframes:frame		// TODO: get inventory
 // Below here are non-MC blocks. We need to put these blocks in the
 // table to make translation a bit easier
 // TODO: Fill in all of these missing ids
+// TODO: make a "horse gear" mod
+417	horse_gear:horse_armor_iron
+418	horse_gear:horse_armor_gold
+419	horse_gear:horse_armor_diamond
+// TODO: Fill in all of these missing ids
+
 
 // random pick for 31:1 grass
 931 0	default:grass_1				// the 8+ entries are used
