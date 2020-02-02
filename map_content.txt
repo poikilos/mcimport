@@ -285,7 +285,7 @@
 // 23	decoblocks:dartblock		// this keeps shooting at whatever entity walks by, even if unpowered
 23	pipeworks:deployer_off		// TODO: get inventory (deployer works like a dispenser)
 24	default:sandstone			// TODO: Sandstone type
-24 1	tsm_pyramids:deco_stone2   // chiseled sandstone (deco_stone2 is sandstone_with_men)
+24 1	tsm_pyramids:deco_stone2  	// chiseled sandstone (deco_stone2 is sandstone_with_men)
 24 2	default:sandstone_block	// smooth sandstone
 
 25	mesecons_noteblock:noteblock		// FIXME: get pitch from entity data
@@ -588,7 +588,7 @@
 
 85	mobs:fence_wood				// All Minecraft fences block mobs.
 
-86	crops:pumpkin				// rotates randomly
+86	farming:pumpkin_8				// _8 is just the mature version apparently; rotates randomly; "pumpkin block"
 
 #ifdef NETHER
 	87	nether:rack
@@ -598,10 +598,13 @@
 	90 0	nether:portal 12
 	90 1	nether:portal 12
 	90 2	nether:portal 1
+#else
+	89	coderblocks:lmb_glowstone
 #endif
 91	farming:jackolantern
 92	pie:pie_0
-//93 0	mesecons_repeater:repeater_off 3		// TODO: implement this in Bucket_Game: it is just an omnidirectional mesecon wire, since mesecon doesn't have attenuation like redstone (no repeater is really necessary in Minetest)
+// NOTE: 93 is the "block" version of the repeater (nodebox) aka "Redstone Repeater Block"
+//93 0	mesecons_repeater:repeater_off 3		// TODO: ? implement this in Bucket_Game? or see mesecons_delayer:delayer_off_1 below instead: it is just an omnidirectional mesecon wire, since mesecon doesn't have attenuation like redstone (no repeater is really necessary in Minetest)
 //93 1	mesecons_repeater:repeater_off 0
 //93 2	mesecons_repeater:repeater_off 1
 //93 3	mesecons_repeater:repeater_off 2
@@ -702,9 +705,9 @@
 101	xpanes:bar
 102	xpanes:pane				// FIXME: (fixed by removing _15 from name?) rotation, shape
 
-103	crops:melon				// rotates randomly
-// ignore: 102 // pumpkin stem
-// ignore: 103 // melon stem
+103	farming_melon_8					// rotates randomly; _8 is just the mature version apparently; "melon block"
+104	farming:pumpkin_2				// "pumpkin stem"
+105	farming:melon_2					// "melon stem"
 106 1	vines:side_middle 5			//Ignore errors about other 106 #'s.
 106 2	vines:side_middle 3			//The bits are toggleable; meaning you don't need both.
 106 4	vines:side_middle 4			//These 4 will cover all bases(N,E,S,W).
@@ -757,14 +760,14 @@
 #endif
 115	coderblocks:lmb_nether_wart	// TODO: implement this in Bucket_Game
 116	xdecor:enchantment_table
-117	coderblocks:lmb_potion_shelf	// TODO: make a 3D version for Bucket_Game
+117	vessels:shelf	// "Brewing Stand"
 118 0	xdecor:cauldron_empty
 118 1	xdecor:cauldron_empty		// FIXME: should be 1/3 full
 118 2	xdecor:cauldron_empty		// FIXME: should be 2/3 full
 118 3	xdecor:cauldron_empty		// FIXME: should be full
 //119	coderblocks:lmb_end_portal	// ignore: TODO: implement this in Bucket_Game
-120	mcl_portals:end_portal_frame
 120 1	mcl_portals:end_portal_frame_eye	// FIXME: 1 is just a guess for the version containing an eye
+120	mcl_portals:end_portal_frame
 121	coderblocks:lmb_end_stone	// TODO: implement this in Bucket_Game
 122	coderblocks:lmb_dragon_egg	// TODO: implement this in Bucket_Game
 123	mesecons_lightstone:lightstone_gray_off
@@ -1098,7 +1101,7 @@
 177 2	coderblocks:lmb_banner_wall 4	// TODO: implement this in Bucket_Game: "wall-mounted banner"
 177 3	coderblocks:lmb_banner_wall 2	// TODO: implement this in Bucket_Game: "wall-mounted banner"
 // 178 is an inverted daylight sensor, cannot convert!
-178	coderblocks:lmb_inverted_daylight_sensor	 // TODO: implement this in Bucket_Game
+178	coderblocks:lmb_inverted_daylight_sensor		// TODO: implement this in Bucket_Game
 
 //179 1	facade:desert_sandstone_centerstone
 //179 2	default:desert_sandstone_block
@@ -1183,21 +1186,21 @@
 196	air					// door parts get fixed up in code
 197	air					// door parts get fixed up in code
 
-//198 // TODO: "end rod" only necessary for recent versions of Minecraft
-//199 // TODO: "chorus plant" only necessary for recent versions of Minecraft
-//200 // TODO: "chorus flower" only necessary for recent versions of Minecraft
-//201 // TODO: "purpur block" only necessary for recent versions of Minecraft
-//202 // TODO: "purpur pillar" only necessary for recent versions of Minecraft
+//198	// TODO: "end rod" only necessary for recent versions of Minecraft
+//199	// TODO: "chorus plant" only necessary for recent versions of Minecraft
+//200	// TODO: "chorus flower" only necessary for recent versions of Minecraft
+//201	// TODO: "purpur block" only necessary for recent versions of Minecraft
+//202	// TODO: "purpur pillar" only necessary for recent versions of Minecraft
 202 0	mcl_end:purpur_pillar	// Default, vector pointing upward, with a MC blockstate for Y
 202 4	mcl_end:purpur_pillar 12	// East,West pointing vectors with a MC blockstate for X
 202 8	mcl_end:purpur_pillar 6	// North,South pointing vectors with a MC blockstate for Z
-//203 // TODO: "purpur stairs" only necessary for recent versions of Minecraft
-//204 // TODO: "purpur double slab" only necessary for recent versions of Minecraft
-//205 // TODO: "purpur slab" only necessary for recent versions of Minecraft
+//203	// TODO: "purpur stairs" only necessary for recent versions of Minecraft
+//204	// TODO: "purpur double slab" only necessary for recent versions of Minecraft
+//205	// TODO: "purpur slab" only necessary for recent versions of Minecraft
 206	coderblocks:lmb_end_stone_brick	//TODO: implement this in Bucket_Game
-//207 // TODO: "beatroot block" only necessary for recent versions of Minecraft
-//208 // TODO: "grass path" only necessary for recent versions of Minecraft
-//209	coderblocks:lmb_end_gateway	// TODO: implement this in Bucket_Game // ignore: "end gateway"
+//207	// TODO: "beatroot block" only necessary for recent versions of Minecraft
+//208	// TODO: "grass path" only necessary for recent versions of Minecraft
+//209	coderblocks:lmb_end_gateway	// TODO: implement this in Bucket_Game	// ignore: "end gateway"
 212	coderblocks:lmb_frosted_ice	// TODO: implement this in Bucket_Game
 213	coderblocks:lmb_lava_rock
 216	decoblocks:bone_pillar	// replaces "bone block"
@@ -1208,9 +1211,9 @@
 //219-234	// shulker boxes
 //235-250	// glazed terracotta
 251	basic_materials:concrete_block
-// 251:0-251:15  // concrete in various colors
+// 251:0-251:15 	// concrete in various colors
 252	default:silver_sand
-// 252:0-252:15  // concrete powder (sand-like) in various colors
+// 252:0-252:15 	// concrete powder (sand-like) in various colors
 //253	// unused (?)
 //254	// unused (?)
 //255	// "structure block"
@@ -1348,11 +1351,57 @@
 353	farming:sugar
 354	pie:pie_0
 355	homedecor:bed_regular			// TODO: fix red bed in Bucket_Game
+// FIXME: The source values for rotation below are guesses based on the mesecons_delayer, but this version should be surface-mounted (source rotation may or may not differ, but dest orientation may be fine since the one that replaces the "block" version above (id 93-94) is surface mounted too)
+356 0	mesecons_delayer:delayer_off_1 3
+356 1	mesecons_delayer:delayer_off_1 0
+356 2	mesecons_delayer:delayer_off_1 1
+356 3	mesecons_delayer:delayer_off_1 2
+356 4	mesecons_delayer:delayer_off_2 3
+356 5	mesecons_delayer:delayer_off_2 0
+356 6	mesecons_delayer:delayer_off_2 1
+356 7	mesecons_delayer:delayer_off_2 2
+356 8	mesecons_delayer:delayer_off_3 3
+356 9	mesecons_delayer:delayer_off_3 0
+356 10	mesecons_delayer:delayer_off_3 1
+356 11	mesecons_delayer:delayer_off_3 2
+356 12	mesecons_delayer:delayer_off_4 3
+356 13	mesecons_delayer:delayer_off_4 0
+356 14	mesecons_delayer:delayer_off_4 1
+356 15	mesecons_delayer:delayer_off_4 2
+357 farming:cookie
+//358 //<filled_map>
 359	mobs:shears
+360	farming:melon_slice
+361	farming:pumpkin_slice	// In minetest, the slice for this is the seed; "Pumpkin Seeds"
+362	farming:melon_slice	// In minetest, the slice for this is the seed; "Melon Seeds"
+363	// "Raw Beef"
+365	// "Steak"
+365	// "Raw Chicken"
+366	// "Cooked Chicken"
+367	// "Rotten Flesh"
+// 368	// "Ender Pearl"
+// 369	// "Blaze Rod"
+// 370	// "Ghast Tear"
+371	mcl_core:gold_nugget	// TODO: implement this craftitem or an alias to it in Bucket_Game; "Gold Nugget"
+// 372	// "Nether Wart" (craftitem)
+// 373	// "Potion"
+374	vessels:glass_bottle	// "Glass Bottle"
+// 375	// "Spider Eye"
+// 376	// "Fermented Spider Eye"
+// 377	// "Blaze Powder"
+// 378	// "Magma Cream"
+// 379	vessels:brewing_stand // TODO: ? implement this in Bucket_Game or alias it; "Brewing Stand"
+379	vessels:shelf // The craftitem version of "Brewing Stand" can also become vessels:shelf like 117 does.
+// TODO: Fill in all of these missing ids
+380	xdecor:cauldron_empty
+381	mcl_end:ender_eye				// TODO: implement this craftitem or an alias to it in Bucket_Game; "Eye of Ender"
+381		// "Glistering Melon"
+// TODO: Fill in all of these missing ids
 388	birthstones:emerald
 389	itemframes:frame		// TODO: get inventory
 // Below here are non-MC blocks. We need to put these blocks in the
 // table to make translation a bit easier
+// TODO: Fill in all of these missing ids
 
 // random pick for 31:1 grass
 931 0	default:grass_1				// the 8+ entries are used
