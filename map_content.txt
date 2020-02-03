@@ -387,9 +387,11 @@
 41	default:goldblock
 42	default:steelblock
 
-43 0	default:stone				// Double slabs
+// Double slabs
+43 0	default:stone
 43 1	default:sandstone
 43 2	default:wood
+// 43 2	mcl_stairs:slab_wood_double	// this is what it actually is
 43 3	default:cobble
 43 4	default:brick
 43 5	default:stonebrick
