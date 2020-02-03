@@ -362,19 +362,10 @@
 35 8	wool:grey	// replaces "light gray"
 35 9	wool:cyan
 // FIXME: some "violet" (supposed to be a cool color) things in Minetest
-// are actually purple (warm or neutral color; 1:1 ratio of blue & red).
-// See <https://steemit.com/steemstem/@jepper/
-// difference-between-purple-and-violet>.
-// - One option is to rename them to purple and add an actual violet
-//   - and change Minecraft's light blue to Minetest cyan
-//   - and change Minecraft's purple to a new Minetest purple
-//   - Some "violet" things in Minetest are actually violet like they
-//     should be:
-//     - Violet glass [cblocks]
-//     - Violet stone brick [cblocks]
-//     - Violet wooden planks [cblocks]
-//     - "*Violet Baked Clay*" [bakedclay]
-//     - "Violetpaper" [christmascraft]
+// are actually purple
+// - See <https://steemit.com/steemstem/@jepper/difference-between-purple-and-violet>.
+// - See "Color conversion issues" section at bottom of
+//   [mcimport article](https://wiki.minetest.org/main/mcimport.html#color-conversion-issues)
 35 10	wool:violet	// replaces "purple"
 35 11	wool:blue
 35 12	wool:brown
