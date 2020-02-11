@@ -705,7 +705,8 @@
 98 0	default:stonebrick
 98 1	decoblocks:moss_stonebrick
 98 2	modernpack:cracked_stone		// TODO: Make a gray version of this
-98 3	facade:stone_centerstone
+//98 3	xdecor:stone_rune	// xdecor:stone_rune is a simple nodebox like Minecraft's
+98 3	facade:stone_centerstone	// facade:stone_centerstone is 3d
 
 99	coderblocks:lmb_brown_mushroom_block	// TODO: implement a mushroom node crafted by combining 9 brown mushrooms (originally "Brown Mushroom Block")
 100	ethereal:mushroom
@@ -1260,22 +1261,23 @@
 218 11	mesecons_observer:observer_on 5
 218 12	mesecons_observer:observer_on 3
 218 13	mesecons_observer:observer_on 5
-219	default:chest	// replaces "white shulker box"
-220	default:chest	// replaces "orange shulker box"
-221	default:chest	// replaces "magenta shulker box"
-222	default:chest	// replaces "light blue shulker box"
-223	default:chest	// replaces "yellow shulker box"
-224	default:chest	// replaces "lime shulker box"
-225	default:chest	// replaces "pink shulker box"
-226	default:chest	// replaces "gray shulker box"
-227	default:chest	// replaces "light gray shulker box"
-228	default:chest	// replaces "cyan shulker box"
-229	default:chest	// replaces "purple shulker box"
-230	default:chest	// replaces "blue shulker box"
-231	default:chest	// replaces "brown shulker box"
-232	default:chest	// replaces "green shulker box"
-233	default:chest	// replaces "red shulker box"
-234	default:chest	// replaces "black shulker box"
+// prestibags:bag requires https://github.com/poikilos/prestibags
+219	prestibags:bag	// replaces "white shulker box"
+220	prestibags:bag	// replaces "orange shulker box"
+221	prestibags:bag	// replaces "magenta shulker box"
+222	prestibags:bag	// replaces "light blue shulker box"
+223	prestibags:bag	// replaces "yellow shulker box"
+224	prestibags:bag	// replaces "lime shulker box"
+225	prestibags:bag	// replaces "pink shulker box"
+226	prestibags:bag	// replaces "gray shulker box"
+227	prestibags:bag	// replaces "light gray shulker box"
+228	prestibags:bag	// replaces "cyan shulker box"
+229	prestibags:bag	// replaces "purple shulker box"
+230	prestibags:bag	// replaces "blue shulker box"
+231	prestibags:bag	// replaces "brown shulker box"
+232	prestibags:bag	// replaces "green shulker box"
+233	prestibags:bag	// replaces "red shulker box"
+234	prestibags:bag	// replaces "black shulker box"
 235	baked_clay:white		// replaces "white glazed terra cotta"
 236	baked_clay:orange		// replaces "white glazed terra cotta"
 237	baked_clay:magenta		// replaces "white glazed terra cotta"
