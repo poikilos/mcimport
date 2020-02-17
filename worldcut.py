@@ -149,7 +149,7 @@ print("If using MultiWorld, the image may be mostly blank except a"
       " small representation ((1/{})/16 size) on the far right"
       " edge.".format(quantize))
 world_name = os.path.split(world_path)[1]
-cut_name = world_name + "-mapcut-parts"
+cut_name = world_name + "-worldcut"
 cut_path = os.path.join(worlds_path, cut_name)
 cut_region_path = os.path.join(cut_path, 'region')
 if not os.path.isdir(cut_region_path):
