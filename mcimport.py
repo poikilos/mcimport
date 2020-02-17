@@ -101,10 +101,19 @@ done
 
 mcmap = MCMap(sys.argv[1])
 mtmap = MTMap(sys.argv[2])
+error_txt = None
+if len(sys.argv) > 3:
+    error_txt = sys.argv[3]
 
-nimap, ct = content.read_content(["NETHER", "QUARTZ"])
-mtmap.fromMCMap(mcmap, nimap, ct)
-mtmap.save()
+try:
+    nimap, ct = content.read_content(["NETHER", "QUARTZ"])
+    mtmap.fromMCMap(mcmap, nimap, ct)
+    mtmap.save()
+except Exception as e:
+    if error_txt is not None:
+        with open(error_txt, 'w') as outs:
+            outs.write(str(e) + "\n")
+    exit(1)
 
 print("Conversion finished!\n")
 print("Run \"sh get-mods.sh\" in the new world folder to automatically download all required mods.")

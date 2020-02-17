@@ -5,7 +5,10 @@
 # assure that the python script runs from the correct location.
 
 cd `dirname $0`
-
+error_txt=error.txt
+if [ -f "$error_txt" ]; then
+	rm "$error_txt"
+fi
 if [ ! -f map_content.txt ]; then
 	zenity --info --width=800 --text "Unable to locate \"map_content.txt\" file - this is a critical error, and this program is unable to continue."
 	exit 1
@@ -34,7 +37,7 @@ fi
 
 zenity --info --width=800 --title="Conversion in progress" --text="The conversion is now running and make take a *very* long time to finish. Do not be alarmed by output lines that show \"Unknown Minecraft Block\" messages, this is normal and can usually be ignored without issues. You can safely close this window." &
 
-python3 mcimport.py "$IN" "${HOME}/.minetest/worlds/$OUT"
+python3 mcimport.py "$IN" "${HOME}/.minetest/worlds/$OUT" "$error_txt"
 
 if [ $? == 0 ]; then
 	if ! zenity --width=800 --question --title="Download required mods?" --text="The world was succesfully converted. Do you want me to download and install all the required mods now? This should be done for each converted world."; then
@@ -47,7 +50,17 @@ if [ $? == 0 ]; then
 		echo "Finished! You can now close this window!"
 	) | zenity --text-info --width=800 --height=600 --title='Downloading required mods.' --text='Downloading...'
 else
-	zenity --info --width=800 --text "Conversion didn't finish normally, the resulting world may not be playable."
+	ERROR=""
+	while read -r line; do ERROR="$ERROR\n$line"; done < "$error_txt"
+	if [ ! -z "$ERROR" ]; then
+		ERROR=": '$ERROR'"
+	else
+		ERROR="."
+	fi
+	if [ -f "$error_txt" ]; then
+		rm "$error_txt"
+	fi
+	zenity --info --width=800 --text "Conversion didn't finish normally, the resulting world may not be playable$ERROR"
 	exit 1
 fi
 

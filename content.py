@@ -59,9 +59,18 @@ def read_content(flags):
             t = s[0].split(" ")
             if len(t) == 2:
                 for data in t[1].split(","):
-                    key = (int(t[0]), int(data))
-                    if key not in bd:
-                        bd[key] = (get_id(name_id_mapping, name), param2)
+                    try:
+                        key = (int(t[0]), int(data))
+                        if key not in bd:
+                            bd[key] = (get_id(name_id_mapping, name),
+                                       param2)
+                    except ValueError as e:
+                        # invalid literal for int() with base 10: ''
+                        raise ValueError("map_content syntax error:"
+                              " a space should"
+                              " only be after '{}' if an int comes"
+                              " next.".format(s[0]))
+                        # raise e
             elif len(t) == 1:
                 for data in range(16):
                     key = (int(t[0]), data)

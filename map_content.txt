@@ -145,7 +145,7 @@
 2	default:dirt_with_grass
 3 0	default:dirt
 3 1	darkage:darkdirt			// course dirt
-3 2	coderblocks:lmb_podzol			// TODO: implement podzol in Bucket_Game
+3 2	coderblocks:lmb_podzol			// podzol // TODO: implement this or something similar in Bucket_Game or elsewhere
 4	default:cobble
 
 #ifdef MORETREES
@@ -606,7 +606,7 @@
 	90 1	nether:portal 12
 	90 2	nether:portal 1
 #else
-	89	coderblocks:lmb_glowstone
+	89	coderblocks:lmb_glowstone  # TODO: change graphic since coderblocks:lmb_glowstone looks much like another.
 #endif
 91	farming:jackolantern
 92	pie:pie_0
@@ -1412,7 +1412,7 @@
 334	mobs:leather
 335	food:bucket_milk
 336	default:clay_brick
-337 	default:clay_lump
+337	default:clay_lump
 338	default:papyrus		// replaces "sugar cane"
 339	default:paper
 340	default:book
