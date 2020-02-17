@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
 """
-by Poikilos
-This is an experimental script that strips out chunks from the world for
-the purpose of world conversion tests.
+# worldcut
+Copyright (C) 2020 - Poikilos (Jake Gustafson)
+License: MIT License (see README or
+<https://en.wikipedia.org/wiki/MIT_License>)
+
+Purpose: Draw heatmap of generated chunks and (optionally) strip out
+chunks from the world for the purpose of world conversion tests.
+
+Run the script inside a Minecraft world directory.
+
+If you run without params, it only generates a heatmap of generated
+chunks and shows the extents to help you choose cropping values.
+
+If you provide cropping values, the removed regions move to
+../<worldname>-worldcut/region/.
+
 """
 from __future__ import division  # Make Py2 only do floor division if //
 import os
@@ -89,7 +102,7 @@ print("  smallest_neg_z: {}".format(smallest_neg_z))
 big_w = max_x - min_x
 big_h = max_z - min_z
 
-quantize = 10
+quantize = 10  # INFO: Original values are already quantized by 16.
 quantize_f = float(quantize)
 
 w = big_w // quantize + 2
@@ -156,14 +169,17 @@ if not os.path.isdir(cut_region_path):
     os.makedirs(cut_region_path)
 
 def usage():
+    print(__doc__)
+
+if len(sys.argv) != 5:
+
+    usage()
+    print("")
     print("* Specify: {} <left> <top> <right> <bottom>\n\n(inclusive)"
           " to crop the"
           " world (in locations quantized by 16) and put the"
           " cuttings in "
           "'{}'".format(sys.argv[0], cut_region_path))
-
-if len(sys.argv) != 5:
-    usage()
     exit(0)
 
 tmp, left, top, right, bottom = sys.argv
