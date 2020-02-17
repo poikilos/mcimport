@@ -113,6 +113,11 @@ except Exception as e:
     if error_txt is not None:
         with open(error_txt, 'w') as outs:
             outs.write(str(e) + "\n")
+        with open(error_txt, 'r') as ins:
+            for line in ins.readlines()
+                print(line.rstrip())
+    else:
+        raise e
     exit(1)
 
 print("Conversion finished!\n")
