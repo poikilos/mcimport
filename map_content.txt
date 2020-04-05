@@ -6,7 +6,10 @@
 //   - You can sort it using copy table as CSV (other copy options fail to paste
 //     due to size) with
 //     https://chrome.google.com/webstore/detail/copytables/ekdpkppgmlalfkphpibadldikjimijon?hl=en
-//
+// - https://minecraft.gamepedia.com/Java_Edition_data_values/Pre-flattening#Block_IDs
+// - individual nodes:
+//   - https://minecraft.gamepedia.com/Redstone_Comparator#Block_data
+//   - https://minecraft.gamepedia.com/Block_states#Banners
 // The format of this file is:
 //MCID data	modname:blockname param2
 //17 0	mcblocks:Oak_Wood 4		//U
