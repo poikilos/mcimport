@@ -902,7 +902,8 @@
 #endif
 
 137	mesecons_commandblock:commandblock_off	// FIXME: formspec
-138	beacon:blue		// requires beacon such as xisd's fork at https://framagit.org/xisd-minetest/beacon/blob/master/init.lua or beacon2 with aliases to beacon: https://github.com/Lunovox/beacon2
+// 138	beacon:blue		// requires beacon such as xisd's fork at https://framagit.org/xisd-minetest/beacon/blob/master/init.lua or beacon2 with aliases to beacon: https://github.com/Lunovox/beacon2
+138	base_claim:teleporter		// See https://github.com/poikilos/mcimport/issues/8
 139 1	walls:mossycobble
 139	walls:cobble
 
@@ -1474,7 +1475,7 @@
 356 14	mesecons_delayer:delayer_off_4 1
 356 15	mesecons_delayer:delayer_off_4 2
 357	farming:cookie
-358	mapp:map	// requires [mapp](https://github.com/4aiman/mapp.git): at least early versions of it are POSSIBLY VERY SLOW, but RealBadAngle <http://realbadangel.pl/mapp.zip> and others improved it later others, and the repo merged the changes--see .net/viewtopic.php?id=4922
+358	mapp:map	// See https://github.com/poikilos/mcimport/issues/6
 359	mobs:shears
 360	farming:melon_slice
 361	farming:pumpkin_slice	// In minetest, the slice for this is the seed; "Pumpkin Seeds"
@@ -1510,6 +1511,7 @@
 387	homedecor:book_brown	// TODO: (urgent) get the text from the Minecraft "Written Book" (only id 387)
 388	birthstones:emerald
 389	itemframes:frame		// TODO: get inventory
+395	mapp:empty_map	// See https://github.com/poikilos/mcimport/issues/6
 // Below here are non-MC blocks. We need to put these blocks in the
 // table to make translation a bit easier
 // TODO: Fill in all of these missing ids
